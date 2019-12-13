@@ -1,0 +1,25 @@
+launch_schedule app:
+
+1. use selenium to get all that is needed from the first mission data: √
+    A. name of mission √
+    B. location √
+    C. Date and Time of mission √
+
+2. explore the google calendar api: √
+    A. get data from it (get event/ reminder) √
+    B. post data into it (post event / reminder) √
+
+3. manipulate data that was extracted from selenium to become sendable to google calendar api √
+    A. convert retrieved date to date in google calendar: √
+        a. run selenium to retrieve launch data √
+        b. parse data that was retrieved into google calendar payload for sending √
+
+4. refactor code to be mor generic:
+    A. get refresh token (or access) automatically
+    B. parse the DATE > DAY data into the date string
+    C. parse the DATE > MONTH data into the date string
+
+
+5. user scheduler to execute code automatically
+
+6. use crawler instead of selenium
