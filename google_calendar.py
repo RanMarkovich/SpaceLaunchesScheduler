@@ -3,6 +3,8 @@ from copy import deepcopy
 
 import requests
 
+from authentication import service
+
 
 class GoogleCalendar:
     url = "https://www.googleapis.com/calendar/v3/calendars"
@@ -27,8 +29,8 @@ class GoogleCalendar:
     }
 
     def get_event(self):
-        r = requests.get(f"{self.url}/markovich.org@gmail.com/events/2qd50sie64hn0d4el4gsm1r80m", headers=self.headers)
-        return r
+        event = service.events().get(calendarId='markovich.org@gmail.com', eventId='2qd50sie64hn0d4el4gsm1r80m').execute()
+        return event
 
     def create_event(self, launch_data, i):
         launch_payload = deepcopy(self.payload)
@@ -42,6 +44,6 @@ class GoogleCalendar:
         parsed_date = f'2019-12-16'
         launch_payload['end']['date'] = parsed_date
         launch_payload['start']['date'] = parsed_date
-        json_payload = json.dumps(launch_payload)
-        r = requests.post(f"{self.url}/markovich.org@gmail.com/events", headers=self.headers, data=json_payload)
-        return r
+        event = service.events().insert(calendarId='markovich.org@gmail.com', body=launch_payload).execute()
+        print('Event created: %s' % (event.get('htmlLink')))
+        return event
