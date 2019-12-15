@@ -1,7 +1,7 @@
-from driver import Driver
+from site_scraper import SiteScraper
 from google_calendar import GoogleCalendar
 
-launch_data = Driver().get_launch_data()
+launch_data = SiteScraper().get_launch_data()
 
 i = 0
 for _ in range(4):

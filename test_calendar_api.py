@@ -16,5 +16,5 @@ def test_get_event_from_calendar(google_calendar):
 
 
 def test_post_event_to_calendar(google_calendar, payload):
-    r = GoogleCalendar().create_event(payload)
+    r = GoogleCalendar().create_event(payload, 0)
     assert r.status_code == 200, f"failed to create event, got: {r.text}"
