@@ -15,11 +15,11 @@ launch_schedule app:
         b. parse data that was retrieved into google calendar payload for sending √
 
 4. refactor code to be mor generic:
-    A. get refresh token (or access) automatically
+    A. get refresh token (or access) automatically V
     B. parse the DATE > DAY data into the date string
     C. parse the DATE > MONTH data into the date string
 
 
 5. user scheduler to execute code automatically
 
-6. use crawler instead of selenium
+6. use crawler instead of selenium √

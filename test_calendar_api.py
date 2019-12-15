@@ -11,10 +11,11 @@ def google_calendar():
 
 
 def test_get_event_from_calendar(google_calendar):
-    r = GoogleCalendar().get_event()
-    assert r.status_code == 200, f"failed to get event, got: {r.text}"
+    event = GoogleCalendar().get_event()
+    assert event['summary'] == 'Test Event'
 
 
 def test_post_event_to_calendar(google_calendar, payload):
-    r = GoogleCalendar().create_event(payload, 0)
-    assert r.status_code == 200, f"failed to create event, got: {r.text}"
+    event = GoogleCalendar().create_event(payload, 0)
+    event_link = event.get('htmlLink')
+    assert event_link is not None
