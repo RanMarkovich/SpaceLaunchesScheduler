@@ -9,7 +9,7 @@ class GoogleCalendar:
 
     headers = {
         'authorization':
-            'Bearer ya29.Il-1B2yNZ6qR88fvlHVbxG4evpL63rzwDKsRLho0BHic8vO6IV7lHLz4y2UWAZyXdg0Y_qmV37UTJckdGUrV832Z8nvfSs7Bu-bPFYfcCnT7azShCLr3Ll_CbQ25NcJH_w',
+            'Bearer ya29.Il-1BwxscfbnGtHsuII3978Ye11Vuz5vE7Pe0zXeDb0RDDoGcczqYHq2d7ZVphW2AJrelKRqlxpTkHGPbOt-qg9cBCiWlwpUo1rTFaZ4QlwMFb_rX8GvK_juMTyr2bpW5w',
 
         'content-type': 'application/json'
     }
@@ -33,13 +33,13 @@ class GoogleCalendar:
     def create_event(self, launch_data, i):
         launch_payload = deepcopy(self.payload)
         launch_payload['description'] = launch_data[i][2]
-        launch_payload['summary'] = launch_data[i][0]
+        launch_payload['summary'] = launch_data[i][1]
         launch_payload['location'] = launch_data[i][2][1]
         # month = ''
         # if launch_data[i][1][0] == 'Dec':
         #     month = '12'
         # day = launch_data[i][1][1]
-        parsed_date = f'2019-12-14'
+        parsed_date = f'2019-12-16'
         launch_payload['end']['date'] = parsed_date
         launch_payload['start']['date'] = parsed_date
         json_payload = json.dumps(launch_payload)
