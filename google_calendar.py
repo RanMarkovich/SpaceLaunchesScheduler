@@ -29,11 +29,11 @@ class GoogleCalendar:
         launch_payload['description'] = launch_data[i][2]
         launch_payload['summary'] = launch_data[i][1]
         launch_payload['location'] = launch_data[i][2][1]
-        # month = ''
-        # if launch_data[i][1][0] == 'Dec':
-        #     month = '12'
-        # day = launch_data[i][1][1]
-        parsed_date = f'2019-12-16'
+        month = ''
+        if launch_data[i][0][0] == 'dec':
+            month = '12'
+        day = launch_data[i][0][1].split('/')
+        parsed_date = f'2019-{month}-{day[0]}'
         launch_payload['end']['date'] = parsed_date
         launch_payload['start']['date'] = parsed_date
         event = self.service.events().insert(calendarId='markovich.org@gmail.com', body=launch_payload).execute()

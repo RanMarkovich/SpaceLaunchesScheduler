@@ -18,7 +18,7 @@ class SiteScraper:
         data_list = []
 
         for i, date in zip(range(4), dates):
-            dates_list.append(date.text.lower())
+            dates_list.append(date.text.lower().split('. '))
         for i, name in zip(range(4), missions_name):
             names_list.append(name.text.lower())
         for i, data in zip(range(4), missions_data):
