@@ -9,17 +9,24 @@ launch_schedule app:
     A. get data from it (get event/ reminder) √
     B. post data into it (post event / reminder) √
 
-3. manipulate data that was extracted from selenium to become sendable to google calendar api √
+3. manipulate data that was extracted from selenium to become sendble to google calendar api √
     A. convert retrieved date to date in google calendar: √
         a. run selenium to retrieve launch data √
         b. parse data that was retrieved into google calendar payload for sending √
 
-4. refactor code to be mor generic:
-    A. get refresh token (or access) automatically V
-    B. parse the DATE > DAY data into the date string
-    C. parse the DATE > MONTH data into the date string
+4. refactor code to be more generic: √
+    A. get refresh token (or access) automatically √
+    B. parse the DATE > DAY data into the date string √
+    C. parse the DATE > MONTH data into the date string √
 
 
-5. user scheduler to execute code automatically
+5. refactor code to be executable and usable with other users
+    A. make app runnable
+    B. use scheduler in code to make fixed calls
+    C. complete authentication code so other users can use it
 
 6. use crawler instead of selenium √
+
+7. add email sender when event is created
+
+8. refactor code to IGNORE already existing events and DELETE irrelevant events
