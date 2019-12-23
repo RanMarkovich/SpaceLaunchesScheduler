@@ -33,7 +33,7 @@ class GoogleCalendar:
         if launch_data[i][0][0] == 'dec':
             month = '12'
         elif launch_data[i][0][0] == 'jan':
-            month = '1'
+            month = '01'
         day = launch_data[i][0][1].split('/')
         parsed_date = f'2019-{month}-{day[0]}'
         launch_payload['end']['date'] = parsed_date
