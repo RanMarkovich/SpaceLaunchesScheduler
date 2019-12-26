@@ -5,8 +5,8 @@ from googleapiclient.discovery import build
 
 
 class Auth:
-    def __init__(self):
-        self.scopes = ["https://www.googleapis.com/auth/calendar.events"]
+    def __init__(self, scopes):
+        self.scopes = [scopes]
 
     def get_auth(self):
         flow = InstalledAppFlow.from_client_secrets_file('client_secret.json', scopes=self.scopes)

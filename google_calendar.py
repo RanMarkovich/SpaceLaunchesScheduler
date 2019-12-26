@@ -1,27 +1,23 @@
 from copy import deepcopy
 
 from authentication import Auth
+import json
 
 
 class GoogleCalendar:
     def __init__(self):
-        self.service = Auth().get_auth()
+        self.service = Auth(scopes="https://www.googleapis.com/auth/calendar.events").get_auth()
+        self.payload = self.payload_init()
 
-        self.payload = {
-            'end': {
-                'date': '2019-12-12'
-            },
-            'start': {
-                'date': '2019-12-12'
-            },
-            'description': 'AUTOMATION',
-            'summary': 'AUTOMATION TEST',
-            'location': 'tel-aviv'
-        }
+    @staticmethod
+    def payload_init():
+        with open('payload/payload.json') as payload:
+            content = json.loads(payload.read())
+            return content
 
     def get_event(self):
         event = self.service.events().get(calendarId='markovich.org@gmail.com',
-                                          eventId='2qd50sie64hn0d4el4gsm1r80m').execute()
+                                          eventId='0o9llkg08rg9f5bpvf548bljhf').execute()
         return event
 
     def create_event(self, launch_data, i):
