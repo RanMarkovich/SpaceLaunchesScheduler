@@ -5,7 +5,7 @@ from authentication import Auth
 
 class GoogleCalendar:
     def __init__(self):
-        self.service = Auth().get_auth()
+        self.service = Auth(scopes="https://www.googleapis.com/auth/calendar.events").get_auth()
 
         self.payload = {
             'end': {
