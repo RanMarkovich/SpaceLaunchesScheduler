@@ -1,8 +1,6 @@
 from pytest import fixture
-from google_calendar import *
-from pytest import fixture
 
-from google_calendar import GoogleCalendar
+from app.google_calendar import GoogleCalendar
 
 
 @fixture()

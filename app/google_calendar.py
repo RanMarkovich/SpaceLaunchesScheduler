@@ -1,6 +1,6 @@
 from copy import deepcopy
 
-from authentication import Auth
+from authentication.authentication import Auth
 import json
 
 
@@ -11,7 +11,7 @@ class GoogleCalendar:
 
     @staticmethod
     def payload_init():
-        with open('payload/payload.json') as payload:
+        with open('../payload/payload.json') as payload:
             content = json.loads(payload.read())
             return content
 
