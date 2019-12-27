@@ -21,6 +21,13 @@ class GoogleCalendar:
         return event
 
     def create_event(self, launch_data, i):
+        for _ in range(i):
+            launch_payload = self.payload_manipulation(launch_data, i)
+            event = self.service.events().insert(calendarId='markovich.org@gmail.com', body=launch_payload).execute()
+            print('Event created: %s' % (event.get('htmlLink')))
+            return event
+
+    def payload_manipulation(self, launch_data, i):
         launch_payload = deepcopy(self.payload)
         launch_payload['description'] = launch_data[i][2]
         launch_payload['summary'] = launch_data[i][1]
@@ -37,6 +44,4 @@ class GoogleCalendar:
         parsed_date = f'{year}-{month}-{day[0]}'
         launch_payload['end']['date'] = parsed_date
         launch_payload['start']['date'] = parsed_date
-        event = self.service.events().insert(calendarId='markovich.org@gmail.com', body=launch_payload).execute()
-        print('Event created: %s' % (event.get('htmlLink')))
-        return event
+        return launch_payload
