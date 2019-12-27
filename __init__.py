@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
-
-from google_calendar import GoogleCalendar
-from site_scraper import SiteScraper
+from app.google_calendar import GoogleCalendar
+from app.site_scraper import SiteScraper
 
 
 def app_exe():
