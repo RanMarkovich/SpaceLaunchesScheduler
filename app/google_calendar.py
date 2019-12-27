@@ -26,12 +26,15 @@ class GoogleCalendar:
         launch_payload['summary'] = launch_data[i][1]
         launch_payload['location'] = launch_data[i][2][1]
         month = ''
+        year = ''
         if launch_data[i][0][0] == 'dec':
             month = '12'
+            year = '2019'
         elif launch_data[i][0][0] == 'jan':
             month = '01'
+            year = '2020'
         day = launch_data[i][0][1].split('/')
-        parsed_date = f'2019-{month}-{day[0]}'
+        parsed_date = f'{year}-{month}-{day[0]}'
         launch_payload['end']['date'] = parsed_date
         launch_payload['start']['date'] = parsed_date
         event = self.service.events().insert(calendarId='markovich.org@gmail.com', body=launch_payload).execute()
